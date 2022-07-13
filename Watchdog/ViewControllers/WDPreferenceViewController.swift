@@ -20,6 +20,16 @@ class WDPreferenceViewController: NSViewController {
         launchAtLoginSwitch.state = WDPreferenceManager.shared.launchAtLogin ? .on : .off
         refreshIntervalField.stringValue = "\(WDPreferenceManager.shared.refreshInterval)"
         
+        _ = launchAtLoginSwitch.statePublisher
+            .sink(receiveValue: { state in
+                let launchAtLogin = state == .on ? true : false
+                
+                let id = "\(Bundle.main.bundleIdentifier!).LaunchAtLogin" as CFString
+                SMLoginItemSetEnabled(id, launchAtLogin)
+                
+                WDPreferenceManager.shared.launchAtLogin = launchAtLogin
+            })
+        
         _ = refreshIntervalField.textDidEndEditingPublisher
             .sink { stringValue in
                 guard let refreshInterval = Double(stringValue), refreshInterval > 0 else {
@@ -27,15 +37,6 @@ class WDPreferenceViewController: NSViewController {
                 }
                 WDPreferenceManager.shared.refreshInterval = refreshInterval
             }
-    }
-    
-    @IBAction func launchAtLoginSwitchDidPressed(sender: NSSwitch) {
-        let launchAtLogin = sender.state == .on ? true : false
-        
-        let id = "\(Bundle.main.bundleIdentifier!).LaunchAtLogin" as CFString
-        SMLoginItemSetEnabled(id, launchAtLogin)
-        
-        WDPreferenceManager.shared.launchAtLogin = launchAtLogin
     }
     
 }

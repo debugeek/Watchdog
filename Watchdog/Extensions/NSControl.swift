@@ -59,7 +59,7 @@ extension CombineCompatible where Self: NSControl {
     }
     
     var textDidChangePublisher: AnyPublisher<String, Never> {
-        NotificationCenter.default
+        return NotificationCenter.default
             .publisher(for: NSControl.textDidChangeNotification, object: self)
             .subscribe(on: DispatchQueue.main)
             .map { _ in self.stringValue }
@@ -67,7 +67,7 @@ extension CombineCompatible where Self: NSControl {
     }
     
     var textDidEndEditingPublisher: AnyPublisher<String, Never> {
-        NotificationCenter.default
+        return NotificationCenter.default
             .publisher(for: NSControl.textDidEndEditingNotification, object: self)
             .subscribe(on: DispatchQueue.main)
             .map { _ in self.stringValue }
@@ -79,10 +79,45 @@ extension CombineCompatible where Self: NSControl {
 extension CombineCompatible where Self: NSPopUpButton {
 
     var indexOfSelectedItemPublisher: AnyPublisher<Int, Never> {
-        NotificationCenter.default
-            .publisher(for: NSMenu.didSendActionNotification, object: self.menu)
-            .map { _ in self.indexOfSelectedItem }
+        return NotificationCenter.default
+            .publisher(for: NSMenu.didSendActionNotification, object: menu)
+            .subscribe(on: DispatchQueue.main)
+            .map { _ in
+                self.indexOfSelectedItem
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    var selectedItemPublisher: AnyPublisher<NSMenuItem?, Never> {
+        return NotificationCenter.default
+            .publisher(for: NSMenu.didSendActionNotification, object: menu)
+            .subscribe(on: DispatchQueue.main)
+            .map { _ in self.selectedItem }
             .eraseToAnyPublisher()
     }
     
 }
+
+extension CombineCompatible where Self: NSSegmentedControl {
+
+    var selectedSegmentPublisher: AnyPublisher<Int, Never> {
+        return clickPublisher
+            .subscribe(on: DispatchQueue.main)
+            .map { _ in self.selectedSegment }
+            .eraseToAnyPublisher()
+    }
+    
+}
+
+extension CombineCompatible where Self: NSSwitch {
+    
+    var statePublisher: AnyPublisher<NSSwitch.StateValue, Never> {
+        return clickPublisher
+            .subscribe(on: DispatchQueue.main)
+            .map { _ in self.state }
+            .eraseToAnyPublisher()
+    }
+    
+}
+
+

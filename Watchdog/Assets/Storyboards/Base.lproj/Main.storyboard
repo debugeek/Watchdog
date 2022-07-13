@@ -454,9 +454,6 @@
                                     <subviews>
                                         <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" baseWritingDirection="leftToRight" alignment="left" translatesAutoresizingMaskIntoConstraints="NO" id="KJ4-EY-awr">
                                             <rect key="frame" x="199" y="194" width="42" height="25"/>
-                                            <connections>
-                                                <action selector="toggleSwitchDidSelected:" target="rFC-np-EpL" id="5dh-AT-FXM"/>
-                                            </connections>
                                         </switch>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="noh-6b-rxs">
                                             <rect key="frame" x="120" y="199" width="53" height="16"/>
@@ -503,9 +500,6 @@
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
-                                            <connections>
-                                                <action selector="typeButtonDidSelected:" target="rFC-np-EpL" id="Or0-s5-snj"/>
-                                            </connections>
                                         </popUpButton>
                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bM7-ht-lyO">
                                             <rect key="frame" x="201" y="89" width="48" height="21"/>
@@ -572,9 +566,6 @@
                                                 <segment image="NSRemoveTemplate" width="32" tag="1"/>
                                             </segments>
                                         </segmentedCell>
-                                        <connections>
-                                            <action selector="segmentedControlDidSelected:" target="rFC-np-EpL" id="Lpq-HK-sB6"/>
-                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <constraints>
@@ -627,9 +618,6 @@
                             </textField>
                             <switch horizontalHuggingPriority="750" verticalHuggingPriority="750" baseWritingDirection="leftToRight" alignment="left" translatesAutoresizingMaskIntoConstraints="NO" id="Ugi-NG-OQV">
                                 <rect key="frame" x="328" y="279" width="42" height="25"/>
-                                <connections>
-                                    <action selector="launchAtLoginSwitchDidPressedWithSender:" target="XRd-Iw-GcW" id="KOr-h1-ZGy"/>
-                                </connections>
                             </switch>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VHm-jz-ktF">
                                 <rect key="frame" x="213" y="248" width="99" height="16"/>

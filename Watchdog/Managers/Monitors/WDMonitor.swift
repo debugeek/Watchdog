@@ -8,7 +8,6 @@
 
 import Foundation
 import Cocoa
-import Combine
 
 class WDStrategyContext {
     let strategy: WDStrategy

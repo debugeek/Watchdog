@@ -23,7 +23,7 @@ class WDMonitorViewController: NSViewController {
     
     private var strategiesSubscriber: AnyCancellable?
     
-    private var strategies: [WDStrategy]? = {
+    private lazy var strategies: [WDStrategy]? = {
         return WDStrategyManager.shared.strategies
     }()
     
@@ -69,6 +69,47 @@ class WDMonitorViewController: NSViewController {
                 self?.selectedStrategy = selectedStrategy
             }
         
+        _ = segmentedControl.selectedSegmentPublisher
+            .sink(receiveValue: { [weak self] selectedSegment in
+                switch selectedSegment {
+                case 0:
+                    let selectedStrategy = WDStrategy(UUID().uuidString, .CPU, 60, 45)
+                    WDStrategyManager.shared.add(selectedStrategy)
+                    self?.selectedStrategy = selectedStrategy
+                    
+                case 1:
+                    guard let selectedStrategy = self?.selectedStrategy else {
+                        break
+                    }
+                    WDStrategyManager.shared.delete(selectedStrategy)
+                    self?.selectedStrategy = nil
+                    
+                default:
+                    break
+                    
+                }
+            })
+        
+        _ = toggleSwitch.statePublisher
+            .sink(receiveValue: { [weak self] state in
+                guard var selectedStrategy = self?.selectedStrategy else {
+                    return
+                }
+                selectedStrategy.enabled = state == .off ? false : true
+                WDStrategyManager.shared.update(selectedStrategy)
+            })
+        
+        _ = typeButton.selectedItemPublisher
+            .sink(receiveValue: { [weak self] menuItem in
+                guard var selectedStrategy = self?.selectedStrategy,
+                      let title = menuItem?.title,
+                      let type: WDStrategy.`Type` = .init(rawValue: title)  else {
+                    return
+                }
+                selectedStrategy.type = type
+                WDStrategyManager.shared.update(selectedStrategy)
+            })
+        
         _ = durationField.textDidEndEditingPublisher
             .sink { [weak self] stringValue in
                 guard var selectedStrategy = self?.selectedStrategy,
@@ -92,44 +133,6 @@ class WDMonitorViewController: NSViewController {
                 
                 WDStrategyManager.shared.update(selectedStrategy)
             }
-    }
-    
-    @IBAction func segmentedControlDidSelected(_ sender: NSSegmentedControl) {
-        switch sender.selectedSegment {
-        case 0:
-            let selectedStrategy = WDStrategy(UUID().uuidString, .CPU, 60, 45)
-            WDStrategyManager.shared.add(selectedStrategy)
-            self.selectedStrategy = selectedStrategy
-            
-        case 1:
-            guard let selectedStrategy = selectedStrategy else {
-                break
-            }
-            WDStrategyManager.shared.delete(selectedStrategy)
-            self.selectedStrategy = nil
-            
-        default:
-            break
-            
-        }
-    }
-    
-    @IBAction func toggleSwitchDidSelected(_ sender: NSSwitch) {
-        guard var selectedStrategy = selectedStrategy else {
-            return
-        }
-        selectedStrategy.enabled = sender.state == .off ? false : true
-        WDStrategyManager.shared.update(selectedStrategy)
-    }
-    
-    @IBAction func typeButtonDidSelected(_ sender: NSPopUpButton) {
-        guard var selectedStrategy = selectedStrategy,
-              let title = sender.selectedItem?.title,
-              let type: WDStrategy.`Type` = .init(rawValue: title)  else {
-            return
-        }
-        selectedStrategy.type = type
-        WDStrategyManager.shared.update(selectedStrategy)
     }
     
 }
