@@ -9,6 +9,7 @@
 import Foundation
 import Combine
 import DGFoundation
+import Shared
 
 class WDEngine {
     
@@ -21,7 +22,7 @@ class WDEngine {
     private var strategiesSubscriber: AnyCancellable?
     private var refreshIntervalSubscriber: AnyCancellable?
     
-    let snapshotSubject = CurrentValueSubject<WDSnapshot?, Never>(nil)
+    let metricsSubject = CurrentValueSubject<WDMetrics?, Never>(nil)
     
     func launch() {
         strategiesSubscriber = WDStrategyManager.shared.strategiesSubject
@@ -46,53 +47,23 @@ class WDEngine {
         WDStrategyManager.shared.reload()
             
         timer = DGTimer.scheduledTimer(timeInterval: WDPreferenceManager.shared.refreshInterval, repeats: true, queue: .main, block: { [weak self] timer in
-            self?.snapshot()
+            self?.collectMetrics()
         })
         
-        snapshot()
+        collectMetrics()
     }
     
-    private func snapshot() {
-        guard let json = wdctl(["snapshot"]),
+    private func collectMetrics() {
+        guard let json = wdctl(["metrics"]),
               let data = json.data(using: .utf8),
-              let params = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+              let metrics = WDMetrics.decode(data) else {
             return
         }
-        
-        var snapshot = WDSnapshot()
-        
-        if let summary = params["summary"] as? [String: Any] {
-            if let memUsed = summary["mem_used"] as? Double {
-                snapshot.memUsed = memUsed
-            }
-            if let memFree = summary["mem_free"] as? Double {
-                snapshot.memFree = memFree
-            }
-        }
-        if let ps = params["ps"] as? [[String: Any]] {
-            snapshot.processes = ps.compactMap {
-                guard let name = $0["name"] as? String,
-                      let pid = $0["pid"] as? Int32,
-                      let cpu = $0["cpu"] as? Double,
-                      let mem = $0["mem"] as? Int64 else {
-                    return nil
-                }
-                return WDProcess(name: name, pid: pid, cpu: cpu, mem: mem)
-            }
-        }
-        if let temperature = params["temperature"] as? [[String: String]] {
-            snapshot.temperatures = temperature.compactMap {
-                guard let name = $0["name"], let valueStr = $0["temperature"], let value = Double(valueStr) else {
-                    return nil
-                }
-                return WDTemperature(name: name, value: value)
-            }
-        }
-        
-        snapshotSubject.send(snapshot)
-        
+
+        metricsSubject.send(metrics)
+
         for monitor in monitors {
-            monitor.refresh(snapshot)
+            monitor.refresh(metrics)
         }
     }
     

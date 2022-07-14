@@ -7,13 +7,16 @@
 //
 
 import Foundation
+import Shared
 
 class WDMemoryMonitor: WDMonitor {
     
-    override func process(_ snapshot: WDSnapshot) {
-        guard let used = snapshot.memUsed, let free = snapshot.memFree else { return }
+    override func process(_ metrics: WDMetrics) {
+        guard let memUsage = metrics.memUsage else {
+            return
+        }
         
-        let percent = used/(used + free)*100.0
+        let percent = memUsage.used/(memUsage.used + memUsage.free)*100.0
         
         for (_, context) in contexts {
             var ids = [String]()

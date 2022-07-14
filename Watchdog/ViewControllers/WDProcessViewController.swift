@@ -8,12 +8,13 @@
 
 import Cocoa
 import Combine
+import Shared
 
 class WDProcessViewController: NSViewController {
 
     @IBOutlet weak var tableView: NSTableView!
     
-    var snapshot: WDSnapshot? {
+    var processes: [WDProcess]? {
         didSet {
             tableView.reloadData()
         }
@@ -22,11 +23,11 @@ class WDProcessViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _ = WDEngine.shared.snapshotSubject
+        _ = WDEngine.shared.metricsSubject
             .subscribe(on: DispatchQueue.global())
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] snapshot in
-                self?.snapshot = snapshot
+            .sink { [weak self] metrics in
+                self?.processes = metrics?.processes
             }
     }
     
@@ -45,7 +46,7 @@ extension WDProcessViewController: NSTableViewDelegate {
 extension WDProcessViewController: NSTableViewDataSource {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return snapshot?.processes?.count ?? 0
+        return processes?.count ?? 0
     }
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
@@ -53,12 +54,12 @@ extension WDProcessViewController: NSTableViewDataSource {
     }
     
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        return snapshot?.processes?[row]
+        return processes?[row]
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         guard let tableColumn = tableColumn,
-              let process = snapshot?.processes?[row],
+              let process = processes?[row],
               let cell = tableView.makeView(withIdentifier: tableColumn.identifier, owner: self) as? NSTableCellView else {
             return nil
         }

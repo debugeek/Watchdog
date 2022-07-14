@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Cocoa
+import Shared
 
 class WDStrategyContext {
     let strategy: WDStrategy
@@ -24,12 +24,12 @@ class WDStrategyContext {
         }
         
         for id in ids.filter({ records[$0] == nil }) {
-            records[id] = machTime()
+            records[id] = CFAbsoluteTimeGetCurrent()
         }
     }
     
     func validate() -> [String] {
-        let now = machTime()
+        let now = CFAbsoluteTimeGetCurrent()
         return records.filter({ now - $1 > strategy.duration }).map { $0.key }
     }
     
@@ -42,7 +42,7 @@ class WDStrategyContext {
 }
 
 protocol WDMonitorProtocol {
-    func process(_ snapshot: WDSnapshot)
+    func process(_ metrics: WDMetrics)
     func notify(_ context: WDStrategyContext, _ ids: [String])
 }
 
@@ -59,10 +59,10 @@ class WDMonitor: WDMonitorProtocol {
         })
     }
     
-    func refresh(_ snapshot: WDSnapshot?) {
-        guard let snapshot = snapshot, contexts.count > 0 else { return }
+    func refresh(_ metrics: WDMetrics?) {
+        guard let metrics = metrics, contexts.count > 0 else { return }
         
-        process(snapshot)
+        process(metrics)
         
         for (_, context) in contexts {
             if !context.strategy.enabled {
@@ -80,7 +80,7 @@ class WDMonitor: WDMonitorProtocol {
         }
     }
     
-    func process(_ snapshot: WDSnapshot) {
+    func process(_ metrics: WDMetrics) {
         
     }
     

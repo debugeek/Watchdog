@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import Shared
 
 class WDCPUMonitor: WDMonitor {
     
-    override func process(_ snapshot: WDSnapshot) {
-        guard let processes = snapshot.processes, processes.count > 0 else { return }
+    override func process(_ metrics: WDMetrics) {
+        guard let processes = metrics.processes, processes.count > 0 else {
+            return
+        }
         
         for (_, context) in contexts {
             var ids = [String]()

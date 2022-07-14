@@ -10,7 +10,7 @@ import Foundation
 import ArgumentParser
 
 struct wdctl: ParsableCommand {
-    static let configuration = CommandConfiguration(subcommands: [snapshot.self])
+    static let configuration = CommandConfiguration(subcommands: [metrics.self])
 }
 
 wdctl.main()

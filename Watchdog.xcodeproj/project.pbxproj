@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2020A2C28805EA600DF6319 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2020A2628805EA600DF6319 /* Shared.framework */; };
+		D2020A2D28805EA600DF6319 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2020A2628805EA600DF6319 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D2020A3228805EC600DF6319 /* WDMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2020A3128805EC600DF6319 /* WDMetrics.swift */; };
+		D2020A3528805F0600DF6319 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2020A2628805EA600DF6319 /* Shared.framework */; };
+		D2020A3728805F7000DF6319 /* IOKitLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2020A3628805F7000DF6319 /* IOKitLoader.swift */; };
+		D2020A3928805FE100DF6319 /* metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2020A3828805FE100DF6319 /* metrics.swift */; };
 		D219B26F26B90D8B0075F3DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219B26E26B90D8B0075F3DB /* AppDelegate.swift */; };
 		D219B27626B90D8C0075F3DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D219B27426B90D8C0075F3DB /* Main.storyboard */; };
 		D219B2C726B92C980075F3DB /* WDEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219B29326B90E950075F3DB /* WDEngine.swift */; };
@@ -16,24 +22,16 @@
 		D23985A926BB8DC3004272FA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D23985A826BB8DC3004272FA /* SnapKit */; };
 		D23985B426BBAF18004272FA /* WDStrategyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23985B326BBAF18004272FA /* WDStrategyManager.swift */; };
 		D23F881826BA275E008611BE /* WDCPUMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F881726BA275E008611BE /* WDCPUMonitor.swift */; };
-		D23F881C26BA38E8008611BE /* WDUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F881B26BA38E8008611BE /* WDUtility.swift */; };
 		D23F881F26BA5F9C008611BE /* WDNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F881E26BA5F9C008611BE /* WDNotificationCenter.swift */; };
 		D23F884426BA71FE008611BE /* App.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23F884326BA71FE008611BE /* App.xcassets */; };
-		D24C727626C7B5F500EE2B2E /* WDProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C727526C7B5F500EE2B2E /* WDProcess.swift */; };
-		D24C729A26C7C49B00EE2B2E /* WDSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C729526C7C48000EE2B2E /* WDSnapshot.swift */; };
-		D24C729D26C7C4DD00EE2B2E /* snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C729C26C7C4DD00EE2B2E /* snapshot.swift */; };
-		D24C72A326C7C89800EE2B2E /* WDTemperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C72A226C7C89800EE2B2E /* WDTemperature.swift */; };
 		D24C72C126C8059E00EE2B2E /* WDPreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C72C026C8059E00EE2B2E /* WDPreferenceManager.swift */; };
 		D24C72E126C80FBC00EE2B2E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C72E026C80FBC00EE2B2E /* main.swift */; };
 		D24C72E926C8104500EE2B2E /* LaunchAtLogin.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = D24C72C826C80F4700EE2B2E /* LaunchAtLogin.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D24EE36726BC35E1009CB41B /* WDFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24EE36626BC35E1009CB41B /* WDFormatter.swift */; };
-		D260E5AC26BEB030000A6878 /* IOHID.m in Sources */ = {isa = PBXBuildFile; fileRef = D295C43526BEA57400366B89 /* IOHID.m */; };
-		D260E5B226BEB044000A6878 /* sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D260E5B126BEB044000A6878 /* sensor.swift */; };
 		D26BB2B026B95C5F00CCA3E8 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = D26BB2AF26B95C5F00CCA3E8 /* ArgumentParser */; };
 		D26BB2B426B95E0E00CCA3E8 /* chmod.sh in Resources */ = {isa = PBXBuildFile; fileRef = D26BB2B326B95E0E00CCA3E8 /* chmod.sh */; };
 		D26BB2B626B95E2B00CCA3E8 /* wdctl in Resources */ = {isa = PBXBuildFile; fileRef = D219B2D226B956E60075F3DB /* wdctl */; };
 		D26BB2B926B95E8500CCA3E8 /* WDShell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26BB2B826B95E8500CCA3E8 /* WDShell.swift */; };
-		D26BB2C326B95F7900CCA3E8 /* process.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26BB2C226B95F7900CCA3E8 /* process.swift */; };
 		D27C7E37287D938D003527E5 /* NSControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27C7E36287D938D003527E5 /* NSControl.swift */; };
 		D28FFB8F26BACAD200EE16B6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D28FFB8E26BACAD200EE16B6 /* Colors.xcassets */; };
 		D28FFBB426BACC8700EE16B6 /* WDMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28FFBB126BACC8700EE16B6 /* WDMainViewController.swift */; };
@@ -45,11 +43,24 @@
 		D28FFBDA26BAE33800EE16B6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FFBD926BAE33800EE16B6 /* MainMenu.xib */; };
 		D295C3F326BD82E900366B89 /* WDSensorMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D295C3F226BD82E900366B89 /* WDSensorMonitor.swift */; };
 		D2B195AF287D4E7D00046640 /* DGFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = D2B195AE287D4E7D00046640 /* DGFoundation */; };
-		D2BE7A4226CA135A0002DD98 /* system.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BE7A4126CA135A0002DD98 /* system.swift */; };
 		D2BE7A4A26CA37260002DD98 /* WDMemoryMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BE7A4926CA37260002DD98 /* WDMemoryMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D2020A2A28805EA600DF6319 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D219B26126B90B9E0075F3DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2020A2528805EA600DF6319;
+			remoteInfo = Shared;
+		};
+		D2020A3328805F0100DF6319 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D219B26126B90B9E0075F3DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2020A2528805EA600DF6319;
+			remoteInfo = Shared;
+		};
 		D24C72E626C8100500EE2B2E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D219B26126B90B9E0075F3DB /* Project object */;
@@ -73,6 +84,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				D2020A2D28805EA600DF6319 /* Shared.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +111,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D2020A2628805EA600DF6319 /* Shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2020A3128805EC600DF6319 /* WDMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WDMetrics.swift; sourceTree = "<group>"; };
+		D2020A3628805F7000DF6319 /* IOKitLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOKitLoader.swift; sourceTree = "<group>"; };
+		D2020A3828805FE100DF6319 /* metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = metrics.swift; sourceTree = "<group>"; };
 		D219B26B26B90D8B0075F3DB /* Watchdog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watchdog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D219B26E26B90D8B0075F3DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D219B27526B90D8C0075F3DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,24 +127,16 @@
 		D219B2D426B956E60075F3DB /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D23985B326BBAF18004272FA /* WDStrategyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDStrategyManager.swift; sourceTree = "<group>"; };
 		D23F881726BA275E008611BE /* WDCPUMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDCPUMonitor.swift; sourceTree = "<group>"; };
-		D23F881B26BA38E8008611BE /* WDUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDUtility.swift; sourceTree = "<group>"; };
 		D23F881E26BA5F9C008611BE /* WDNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDNotificationCenter.swift; sourceTree = "<group>"; };
 		D23F884326BA71FE008611BE /* App.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = App.xcassets; sourceTree = "<group>"; };
-		D24C727526C7B5F500EE2B2E /* WDProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDProcess.swift; sourceTree = "<group>"; };
-		D24C729526C7C48000EE2B2E /* WDSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDSnapshot.swift; sourceTree = "<group>"; };
-		D24C729C26C7C4DD00EE2B2E /* snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = snapshot.swift; sourceTree = "<group>"; };
-		D24C72A226C7C89800EE2B2E /* WDTemperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDTemperature.swift; sourceTree = "<group>"; };
 		D24C72C026C8059E00EE2B2E /* WDPreferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDPreferenceManager.swift; sourceTree = "<group>"; };
 		D24C72C826C80F4700EE2B2E /* LaunchAtLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaunchAtLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D24C72D326C80F4700EE2B2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D24C72D426C80F4700EE2B2E /* LaunchAtLogin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LaunchAtLogin.entitlements; sourceTree = "<group>"; };
 		D24C72E026C80FBC00EE2B2E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D24EE36626BC35E1009CB41B /* WDFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDFormatter.swift; sourceTree = "<group>"; };
-		D260E5AB26BEB010000A6878 /* wdctl-bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "wdctl-bridging-header.h"; sourceTree = "<group>"; };
-		D260E5B126BEB044000A6878 /* sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sensor.swift; sourceTree = "<group>"; };
 		D26BB2B326B95E0E00CCA3E8 /* chmod.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = chmod.sh; sourceTree = "<group>"; };
 		D26BB2B826B95E8500CCA3E8 /* WDShell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDShell.swift; sourceTree = "<group>"; };
-		D26BB2C226B95F7900CCA3E8 /* process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = process.swift; sourceTree = "<group>"; };
 		D27C7E36287D938D003527E5 /* NSControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSControl.swift; sourceTree = "<group>"; };
 		D28FFB8E26BACAD200EE16B6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		D28FFBB126BACC8700EE16B6 /* WDMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WDMainViewController.swift; sourceTree = "<group>"; };
@@ -139,18 +147,23 @@
 		D28FFBD226BAD45500EE16B6 /* WDProcessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDProcessViewController.swift; sourceTree = "<group>"; };
 		D28FFBD926BAE33800EE16B6 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		D295C3F226BD82E900366B89 /* WDSensorMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDSensorMonitor.swift; sourceTree = "<group>"; };
-		D295C43426BEA57400366B89 /* IOHID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOHID.h; sourceTree = "<group>"; };
-		D295C43526BEA57400366B89 /* IOHID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOHID.m; sourceTree = "<group>"; };
-		D2BE7A4126CA135A0002DD98 /* system.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = system.swift; sourceTree = "<group>"; };
 		D2BE7A4926CA37260002DD98 /* WDMemoryMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WDMemoryMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D2020A2328805EA600DF6319 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D219B26826B90D8B0075F3DB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D2B195AF287D4E7D00046640 /* DGFoundation in Frameworks */,
+				D2020A2C28805EA600DF6319 /* Shared.framework in Frameworks */,
 				D23985A926BB8DC3004272FA /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2020A3528805F0600DF6319 /* Shared.framework in Frameworks */,
 				D26BB2B026B95C5F00CCA3E8 /* ArgumentParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,12 +187,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D2020A2728805EA600DF6319 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D2020A3128805EC600DF6319 /* WDMetrics.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		D219B26026B90B9E0075F3DB = {
 			isa = PBXGroup;
 			children = (
 				D219B26D26B90D8B0075F3DB /* Watchdog */,
 				D219B2D326B956E60075F3DB /* wdctl */,
 				D24C72C926C80F4700EE2B2E /* LaunchAtLogin */,
+				D2020A2728805EA600DF6319 /* Shared */,
 				D219B26C26B90D8B0075F3DB /* Products */,
 				D295C41B26BD981400366B89 /* Frameworks */,
 			);
@@ -190,6 +213,7 @@
 				D219B26B26B90D8B0075F3DB /* Watchdog.app */,
 				D219B2D226B956E60075F3DB /* wdctl */,
 				D24C72C826C80F4700EE2B2E /* LaunchAtLogin.app */,
+				D2020A2628805EA600DF6319 /* Shared.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,9 +261,6 @@
 		D219B2C626B92C850075F3DB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D24C727526C7B5F500EE2B2E /* WDProcess.swift */,
-				D24C72A226C7C89800EE2B2E /* WDTemperature.swift */,
-				D24C729526C7C48000EE2B2E /* WDSnapshot.swift */,
 				D219B29726B90F250075F3DB /* WDStrategy.swift */,
 			);
 			path = Models;
@@ -248,13 +269,9 @@
 		D219B2D326B956E60075F3DB /* wdctl */ = {
 			isa = PBXGroup;
 			children = (
-				D295C43326BEA57400366B89 /* IOHID */,
+				D2020A3628805F7000DF6319 /* IOKitLoader.swift */,
 				D219B2D426B956E60075F3DB /* main.swift */,
-				D26BB2C226B95F7900CCA3E8 /* process.swift */,
-				D260E5B126BEB044000A6878 /* sensor.swift */,
-				D2BE7A4126CA135A0002DD98 /* system.swift */,
-				D24C729C26C7C4DD00EE2B2E /* snapshot.swift */,
-				D260E5AB26BEB010000A6878 /* wdctl-bridging-header.h */,
+				D2020A3828805FE100DF6319 /* metrics.swift */,
 			);
 			path = wdctl;
 			sourceTree = "<group>";
@@ -300,7 +317,6 @@
 			isa = PBXGroup;
 			children = (
 				D26BB2B826B95E8500CCA3E8 /* WDShell.swift */,
-				D23F881B26BA38E8008611BE /* WDUtility.swift */,
 				D24EE36626BC35E1009CB41B /* WDFormatter.swift */,
 			);
 			path = Utilities;
@@ -358,18 +374,37 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D295C43326BEA57400366B89 /* IOHID */ = {
-			isa = PBXGroup;
-			children = (
-				D295C43426BEA57400366B89 /* IOHID.h */,
-				D295C43526BEA57400366B89 /* IOHID.m */,
-			);
-			path = IOHID;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		D2020A2128805EA600DF6319 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		D2020A2528805EA600DF6319 /* Shared */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2020A2E28805EA600DF6319 /* Build configuration list for PBXNativeTarget "Shared" */;
+			buildPhases = (
+				D2020A2128805EA600DF6319 /* Headers */,
+				D2020A2228805EA600DF6319 /* Sources */,
+				D2020A2328805EA600DF6319 /* Frameworks */,
+				D2020A2428805EA600DF6319 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Shared;
+			productName = Shared;
+			productReference = D2020A2628805EA600DF6319 /* Shared.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		D219B26A26B90D8B0075F3DB /* Watchdog */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D219B27926B90D8C0075F3DB /* Build configuration list for PBXNativeTarget "Watchdog" */;
@@ -385,6 +420,7 @@
 			dependencies = (
 				D24C72E726C8100500EE2B2E /* PBXTargetDependency */,
 				D26BB2C026B95F4E00CCA3E8 /* PBXTargetDependency */,
+				D2020A2B28805EA600DF6319 /* PBXTargetDependency */,
 			);
 			name = Watchdog;
 			packageProductDependencies = (
@@ -406,6 +442,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D2020A3428805F0100DF6319 /* PBXTargetDependency */,
 			);
 			name = wdctl;
 			packageProductDependencies = (
@@ -443,6 +480,10 @@
 				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = debugeek;
 				TargetAttributes = {
+					D2020A2528805EA600DF6319 = {
+						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
+					};
 					D219B26A26B90D8B0075F3DB = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -476,11 +517,19 @@
 				D219B26A26B90D8B0075F3DB /* Watchdog */,
 				D24C72C726C80F4700EE2B2E /* LaunchAtLogin */,
 				D219B2D126B956E60075F3DB /* wdctl */,
+				D2020A2528805EA600DF6319 /* Shared */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D2020A2428805EA600DF6319 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D219B26926B90D8B0075F3DB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -504,13 +553,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D2020A2228805EA600DF6319 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2020A3228805EC600DF6319 /* WDMetrics.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D219B26726B90D8B0075F3DB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D23F881F26BA5F9C008611BE /* WDNotificationCenter.swift in Sources */,
 				D28FFBB526BACC8700EE16B6 /* WDMainWindowController.swift in Sources */,
-				D23F881C26BA38E8008611BE /* WDUtility.swift in Sources */,
 				D28FFBB426BACC8700EE16B6 /* WDMainViewController.swift in Sources */,
 				D295C3F326BD82E900366B89 /* WDSensorMonitor.swift in Sources */,
 				D27C7E37287D938D003527E5 /* NSControl.swift in Sources */,
@@ -518,9 +574,7 @@
 				D23F881826BA275E008611BE /* WDCPUMonitor.swift in Sources */,
 				D28FFBD326BAD45500EE16B6 /* WDProcessViewController.swift in Sources */,
 				D26BB2B926B95E8500CCA3E8 /* WDShell.swift in Sources */,
-				D24C729A26C7C49B00EE2B2E /* WDSnapshot.swift in Sources */,
 				D219B2C826B92C980075F3DB /* WDMonitor.swift in Sources */,
-				D24C727626C7B5F500EE2B2E /* WDProcess.swift in Sources */,
 				D219B2CA26B92C9D0075F3DB /* WDStrategy.swift in Sources */,
 				D23985B426BBAF18004272FA /* WDStrategyManager.swift in Sources */,
 				D2BE7A4A26CA37260002DD98 /* WDMemoryMonitor.swift in Sources */,
@@ -530,7 +584,6 @@
 				D219B26F26B90D8B0075F3DB /* AppDelegate.swift in Sources */,
 				D219B2C726B92C980075F3DB /* WDEngine.swift in Sources */,
 				D24EE36726BC35E1009CB41B /* WDFormatter.swift in Sources */,
-				D24C72A326C7C89800EE2B2E /* WDTemperature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,12 +591,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D260E5AC26BEB030000A6878 /* IOHID.m in Sources */,
-				D260E5B226BEB044000A6878 /* sensor.swift in Sources */,
-				D2BE7A4226CA135A0002DD98 /* system.swift in Sources */,
 				D219B2D526B956E60075F3DB /* main.swift in Sources */,
-				D26BB2C326B95F7900CCA3E8 /* process.swift in Sources */,
-				D24C729D26C7C4DD00EE2B2E /* snapshot.swift in Sources */,
+				D2020A3928805FE100DF6319 /* metrics.swift in Sources */,
+				D2020A3728805F7000DF6319 /* IOKitLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +608,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D2020A2B28805EA600DF6319 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2020A2528805EA600DF6319 /* Shared */;
+			targetProxy = D2020A2A28805EA600DF6319 /* PBXContainerItemProxy */;
+		};
+		D2020A3428805F0100DF6319 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2020A2528805EA600DF6319 /* Shared */;
+			targetProxy = D2020A3328805F0100DF6319 /* PBXContainerItemProxy */;
+		};
 		D24C72E726C8100500EE2B2E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D24C72C726C80F4700EE2B2E /* LaunchAtLogin */;
@@ -582,6 +642,165 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D2020A2F28805EA600DF6319 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 debugeek. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.debugeek.Watchdog.Shared;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D2020A3028805EA600DF6319 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2022 debugeek. All rights reserved.";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.debugeek.Watchdog.Shared;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		D219B26526B90B9E0075F3DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -657,7 +876,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -727,7 +945,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.debugeek.Watchdog;
@@ -791,14 +1008,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "wdctl/wdctl-bridging-header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -850,13 +1065,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OBJC_BRIDGING_HEADER = "wdctl/wdctl-bridging-header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 			};
@@ -923,7 +1136,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -991,7 +1203,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.debugeek.Watchdog.LaunchAtLogin;
@@ -1006,6 +1217,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D2020A2E28805EA600DF6319 /* Build configuration list for PBXNativeTarget "Shared" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2020A2F28805EA600DF6319 /* Debug */,
+				D2020A3028805EA600DF6319 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D219B26426B90B9E0075F3DB /* Build configuration list for PBXProject "Watchdog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -7,17 +7,18 @@
 //
 
 import Foundation
+import Shared
 
 class WDSensorMonitor: WDMonitor {
     
-    override func process(_ snaptshot: WDSnapshot) {
-        guard let temperatures = snaptshot.temperatures, temperatures.count > 0 else {
+    override func process(_ metrics: WDMetrics) {
+        guard let sensors = metrics.sensors, sensors.count > 0 else {
             return
         }
         
         var hash = [String: Double]()
-        for temperature in temperatures {
-            hash[temperature.name] = temperature.value
+        for sensor in sensors {
+            hash[sensor.name] = sensor.value
         }
         
         for (_, context) in contexts {
