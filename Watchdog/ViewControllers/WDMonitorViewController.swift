@@ -41,7 +41,7 @@ class WDMonitorViewController: NSViewController {
                 segmentedControl.setEnabled(false, forSegment: 1)
             }
             
-            if let row = strategies?.firstIndex(where: { $0.id == selectedStrategy?.id }) {
+            if let selectedStrategy = selectedStrategy, let row = strategies?.firstIndex(of: selectedStrategy) {
                 tableView.selectRowIndexes(IndexSet(integer: row), byExtendingSelection: false)
             } else {
                 tableView.selectRowIndexes(IndexSet(integer: -1), byExtendingSelection: false)
@@ -81,8 +81,9 @@ class WDMonitorViewController: NSViewController {
                     guard let selectedStrategy = self?.selectedStrategy else {
                         break
                     }
+                    let nextStrategy = self?.strategies?.next(of: selectedStrategy) ?? self?.strategies?.previous(of: selectedStrategy)
                     WDStrategyManager.shared.delete(selectedStrategy)
-                    self?.selectedStrategy = nil
+                    self?.selectedStrategy = nextStrategy
                     
                 default:
                     break

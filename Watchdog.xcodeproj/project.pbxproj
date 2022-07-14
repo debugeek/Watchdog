@@ -13,6 +13,7 @@
 		D2020A3528805F0600DF6319 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2020A2628805EA600DF6319 /* Shared.framework */; };
 		D2020A3728805F7000DF6319 /* IOKitLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2020A3628805F7000DF6319 /* IOKitLoader.swift */; };
 		D2020A3928805FE100DF6319 /* metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2020A3828805FE100DF6319 /* metrics.swift */; };
+		D2020A3B28806C7800DF6319 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2020A3A28806C7800DF6319 /* Collection.swift */; };
 		D219B26F26B90D8B0075F3DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219B26E26B90D8B0075F3DB /* AppDelegate.swift */; };
 		D219B27626B90D8C0075F3DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D219B27426B90D8C0075F3DB /* Main.storyboard */; };
 		D219B2C726B92C980075F3DB /* WDEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D219B29326B90E950075F3DB /* WDEngine.swift */; };
@@ -115,6 +116,7 @@
 		D2020A3128805EC600DF6319 /* WDMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WDMetrics.swift; sourceTree = "<group>"; };
 		D2020A3628805F7000DF6319 /* IOKitLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOKitLoader.swift; sourceTree = "<group>"; };
 		D2020A3828805FE100DF6319 /* metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = metrics.swift; sourceTree = "<group>"; };
+		D2020A3A28806C7800DF6319 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		D219B26B26B90D8B0075F3DB /* Watchdog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watchdog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D219B26E26B90D8B0075F3DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D219B27526B90D8C0075F3DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				D27C7E36287D938D003527E5 /* NSControl.swift */,
+				D2020A3A28806C7800DF6319 /* Collection.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D23F881F26BA5F9C008611BE /* WDNotificationCenter.swift in Sources */,
+				D2020A3B28806C7800DF6319 /* Collection.swift in Sources */,
 				D28FFBB526BACC8700EE16B6 /* WDMainWindowController.swift in Sources */,
 				D28FFBB426BACC8700EE16B6 /* WDMainViewController.swift in Sources */,
 				D295C3F326BD82E900366B89 /* WDSensorMonitor.swift in Sources */,

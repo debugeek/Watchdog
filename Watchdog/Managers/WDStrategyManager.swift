@@ -43,7 +43,7 @@ class WDStrategyManager {
     }
     
     func delete(_ strategy: WDStrategy) {
-        guard let index = strategies?.firstIndex(where: { $0.id == strategy.id }) else {
+        guard let index = strategies?.firstIndex(of: strategy) else {
             return
         }
         strategies?.remove(at: index)
@@ -51,7 +51,7 @@ class WDStrategyManager {
     }
     
     func update(_ strategy: WDStrategy) {
-        guard let index = strategies?.firstIndex(where: { $0.id == strategy.id }) else {
+        guard let index = strategies?.firstIndex(of: strategy) else {
             return
         }
         strategies?[index].update(strategy)
