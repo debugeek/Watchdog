@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		989AFEE22884034500DA8721 /* sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989AFEE12884034500DA8721 /* sensor.swift */; };
+		98D7092328844943005AE914 /* process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D7092228844943005AE914 /* process.swift */; };
+		98D709252884498F005AE914 /* cpu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D709242884498F005AE914 /* cpu.swift */; };
+		98D7092728844994005AE914 /* mem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D7092628844994005AE914 /* mem.swift */; };
 		D2020A2C28805EA600DF6319 /* Shared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2020A2628805EA600DF6319 /* Shared.framework */; };
 		D2020A2D28805EA600DF6319 /* Shared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2020A2628805EA600DF6319 /* Shared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2020A3228805EC600DF6319 /* WDMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2020A3128805EC600DF6319 /* WDMetrics.swift */; };
@@ -112,6 +116,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		989AFEE12884034500DA8721 /* sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sensor.swift; sourceTree = "<group>"; };
+		98D7092228844943005AE914 /* process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = process.swift; sourceTree = "<group>"; };
+		98D709242884498F005AE914 /* cpu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cpu.swift; sourceTree = "<group>"; };
+		98D7092628844994005AE914 /* mem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mem.swift; sourceTree = "<group>"; };
 		D2020A2628805EA600DF6319 /* Shared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Shared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2020A3128805EC600DF6319 /* WDMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WDMetrics.swift; sourceTree = "<group>"; };
 		D2020A3628805F7000DF6319 /* IOKitLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOKitLoader.swift; sourceTree = "<group>"; };
@@ -274,6 +282,10 @@
 				D2020A3628805F7000DF6319 /* IOKitLoader.swift */,
 				D219B2D426B956E60075F3DB /* main.swift */,
 				D2020A3828805FE100DF6319 /* metrics.swift */,
+				989AFEE12884034500DA8721 /* sensor.swift */,
+				98D7092228844943005AE914 /* process.swift */,
+				98D709242884498F005AE914 /* cpu.swift */,
+				98D7092628844994005AE914 /* mem.swift */,
 			);
 			path = wdctl;
 			sourceTree = "<group>";
@@ -595,8 +607,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98D709252884498F005AE914 /* cpu.swift in Sources */,
+				98D7092728844994005AE914 /* mem.swift in Sources */,
 				D219B2D526B956E60075F3DB /* main.swift in Sources */,
+				989AFEE22884034500DA8721 /* sensor.swift in Sources */,
 				D2020A3928805FE100DF6319 /* metrics.swift in Sources */,
+				98D7092328844943005AE914 /* process.swift in Sources */,
 				D2020A3728805F7000DF6319 /* IOKitLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
