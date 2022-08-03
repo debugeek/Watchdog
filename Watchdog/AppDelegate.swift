@@ -22,8 +22,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.menu = statusMenu
         statusItem.button?.image = NSImage(systemSymbolName: "binoculars", accessibilityDescription: nil)
         
-        WDShell.chmod()
-        
         WDEngine.shared.launch()
         
         WDNotificationCenter.shared.requestPermission { (result) in

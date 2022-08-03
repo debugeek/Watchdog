@@ -14,41 +14,68 @@ class WDTemperatureViewController: NSViewController {
 
     @IBOutlet weak var tableView: NSTableView!
     
-    var sensors: [WDSensor]? {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    var sensors: [WDSensor]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for column in tableView.tableColumns {
+            let sortDesc = NSSortDescriptor(key: column.identifier.rawValue, ascending: true)
+            column.sortDescriptorPrototype = sortDesc
+        }
         
         _ = WDEngine.shared.metricsSubject
             .subscribe(on: DispatchQueue.global())
             .receive(on: DispatchQueue.main)
             .sink { [weak self] metrics in
-                self?.sensors = metrics?.sensors
+                self?.reload(sensors: metrics?.sensors)
             }
+    }
+    
+    private func reload(sensors: [WDSensor]?) {
+        if tableView.sortDescriptors.count > 0 {
+            self.sensors = sensors?.sorted(by: { sensor1, sensor2 in
+                for sortDesc in tableView.sortDescriptors {
+                    var lhs: String?
+                    var rhs: String?
+                    var options: String.CompareOptions = .literal
+                    
+                    switch sortDesc.key {
+                    case NSUserInterfaceItemIdentifier.name.rawValue:
+                        lhs = sensor1.name
+                        rhs = sensor2.name
+                    case NSUserInterfaceItemIdentifier.temperature.rawValue:
+                        lhs = "\(sensor1.value)"
+                        rhs = "\(sensor2.value)"
+                        options = .numeric
+                    default: break
+                    }
+                    
+                    guard let lhs = lhs, let rhs = rhs else {
+                        continue
+                    }
+                    
+                    switch lhs.compare(rhs, options: options) {
+                    case .orderedSame: continue
+                    case .orderedAscending: return sortDesc.ascending
+                    case .orderedDescending: return !sortDesc.ascending
+                    }
+                }
+                return true
+            })
+        } else {
+            self.sensors = sensors
+        }
+        
+        tableView.reloadData()
     }
     
 }
 
 extension WDTemperatureViewController: NSTableViewDelegate {
     
-}
-
-extension WDTemperatureViewController: NSTableViewDataSource {
-    
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        return sensors?.count ?? 0
-    }
-    
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         return 32
-    }
-    
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        return sensors?[row]
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
@@ -68,6 +95,18 @@ extension WDTemperatureViewController: NSTableViewDataSource {
         }
     
         return cell
+    }
+    
+}
+
+extension WDTemperatureViewController: NSTableViewDataSource {
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return sensors?.count ?? 0
+    }
+    
+    func tableView(_ tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
+        reload(sensors: sensors)
     }
     
 }
