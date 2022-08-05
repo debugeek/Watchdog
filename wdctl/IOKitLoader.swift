@@ -39,7 +39,7 @@ class IOKitLoader {
 
 extension IOKitLoader {
     
-    func getTemperatureVallues() -> [String: Double]? {
+    func getTemperatureValues() -> [String: Double]? {
         var values = [String: Double]()
         
         // kHIDPage_AppleVendor = 0xff00

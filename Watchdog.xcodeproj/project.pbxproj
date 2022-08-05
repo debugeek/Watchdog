@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9891D6E8289B62A1002A17C6 /* IOKitSMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9891D6E7289B62A1002A17C6 /* IOKitSMC.swift */; };
 		989AFEE22884034500DA8721 /* sensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989AFEE12884034500DA8721 /* sensor.swift */; };
 		98D7092328844943005AE914 /* process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D7092228844943005AE914 /* process.swift */; };
 		98D709252884498F005AE914 /* cpu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D709242884498F005AE914 /* cpu.swift */; };
@@ -116,6 +117,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9891D6E7289B62A1002A17C6 /* IOKitSMC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOKitSMC.swift; sourceTree = "<group>"; };
 		989AFEE12884034500DA8721 /* sensor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sensor.swift; sourceTree = "<group>"; };
 		98D7092228844943005AE914 /* process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = process.swift; sourceTree = "<group>"; };
 		98D709242884498F005AE914 /* cpu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cpu.swift; sourceTree = "<group>"; };
@@ -279,13 +281,14 @@
 		D219B2D326B956E60075F3DB /* wdctl */ = {
 			isa = PBXGroup;
 			children = (
-				D2020A3628805F7000DF6319 /* IOKitLoader.swift */,
-				D219B2D426B956E60075F3DB /* main.swift */,
-				D2020A3828805FE100DF6319 /* metrics.swift */,
-				989AFEE12884034500DA8721 /* sensor.swift */,
-				98D7092228844943005AE914 /* process.swift */,
 				98D709242884498F005AE914 /* cpu.swift */,
+				D2020A3628805F7000DF6319 /* IOKitLoader.swift */,
+				9891D6E7289B62A1002A17C6 /* IOKitSMC.swift */,
+				D219B2D426B956E60075F3DB /* main.swift */,
 				98D7092628844994005AE914 /* mem.swift */,
+				D2020A3828805FE100DF6319 /* metrics.swift */,
+				98D7092228844943005AE914 /* process.swift */,
+				989AFEE12884034500DA8721 /* sensor.swift */,
 			);
 			path = wdctl;
 			sourceTree = "<group>";
@@ -611,6 +614,7 @@
 				98D7092728844994005AE914 /* mem.swift in Sources */,
 				D219B2D526B956E60075F3DB /* main.swift in Sources */,
 				989AFEE22884034500DA8721 /* sensor.swift in Sources */,
+				9891D6E8289B62A1002A17C6 /* IOKitSMC.swift in Sources */,
 				D2020A3928805FE100DF6319 /* metrics.swift in Sources */,
 				98D7092328844943005AE914 /* process.swift in Sources */,
 				D2020A3728805F7000DF6319 /* IOKitLoader.swift in Sources */,
