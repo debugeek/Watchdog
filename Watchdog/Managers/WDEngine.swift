@@ -41,7 +41,7 @@ class WDEngine {
         refreshIntervalSubscriber = WDPreferenceManager.shared.refreshIntervalSubject
             .filter { $0 > 0 }
             .sink { [weak self] (refreshInterval) in
-                self?.timer?.reschedule(repeatingInterval: refreshInterval)
+                self?.timer?.reschedule(timeInterval: refreshInterval)
         }
         
         WDStrategyManager.shared.reload()

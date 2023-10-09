@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import IOKit
+import IOKit.hidsystem
 
 class IOKitLoader {
     
