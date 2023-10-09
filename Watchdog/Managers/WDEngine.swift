@@ -19,30 +19,30 @@ class WDEngine {
     
     private var timer: DGTimer?
     
-    private var strategiesSubscriber: AnyCancellable?
-    private var refreshIntervalSubscriber: AnyCancellable?
-    
     let metricsSubject = CurrentValueSubject<WDMetrics?, Never>(nil)
+    private var cancellables = Set<AnyCancellable>()
     
     func launch() {
-        strategiesSubscriber = WDStrategyManager.shared.strategiesSubject
+        WDStrategyManager.shared.strategiesSubject
             .sink { [weak self] (strategies) in
                 self?.monitors.forEach({ monitor in
                     if monitor is WDCPUMonitor {
-                        monitor.reload(strategies?.filter { $0.type == .CPU })
+                        monitor.reload(strategies.filter { $0.type == .CPU })
                     } else if monitor is WDSensorMonitor {
-                        monitor.reload(strategies?.filter { $0.type == .Temperature })
+                        monitor.reload(strategies.filter { $0.type == .Temperature })
                     } else if monitor is WDMemoryMonitor {
-                        monitor.reload(strategies?.filter { $0.type == .Memory })
+                        monitor.reload(strategies.filter { $0.type == .Memory })
                     }
                 })
-        }
+            }
+            .store(in: &cancellables)
         
-        refreshIntervalSubscriber = WDPreferenceManager.shared.refreshIntervalSubject
+        WDPreferenceManager.shared.refreshIntervalSubject
             .filter { $0 > 0 }
             .sink { [weak self] (refreshInterval) in
                 self?.timer?.reschedule(timeInterval: refreshInterval)
-        }
+            }
+            .store(in: &cancellables)
         
         WDStrategyManager.shared.reload()
             

@@ -12,13 +12,14 @@ import Combine
 class WDStrategyManager {
     
     static let shared = WDStrategyManager()
-    
-    private(set) var strategies: [WDStrategy]? {
-        didSet { strategiesSubject.send(strategies) }
+
+    let strategiesSubject = PassthroughSubject<[WDStrategy], Never>()
+    private(set) var strategies = [WDStrategy]() {
+        didSet {
+            strategiesSubject.send(strategies)
+        }
     }
-    
-    let strategiesSubject = PassthroughSubject<[WDStrategy]?, Never>()
-    
+
     func save() {
         guard let data = try? JSONEncoder().encode(strategies) else {
             return
@@ -35,26 +36,26 @@ class WDStrategyManager {
     }
     
     func add(_ strategy: WDStrategy) {
-        if strategies?.contains(where: { $0.id == strategy.id }) ?? false {
+        if strategies.contains(strategy) {
             return
         }
-        strategies?.append(strategy)
+        strategies.append(strategy)
         save()
     }
     
     func delete(_ strategy: WDStrategy) {
-        guard let index = strategies?.firstIndex(of: strategy) else {
+        guard let index = strategies.firstIndex(of: strategy) else {
             return
         }
-        strategies?.remove(at: index)
+        strategies.remove(at: index)
         save()
     }
     
     func update(_ strategy: WDStrategy) {
-        guard let index = strategies?.firstIndex(of: strategy) else {
+        guard let index = strategies.firstIndex(of: strategy) else {
             return
         }
-        strategies?[index].update(strategy)
+        strategies[index].update(strategy)
         save()
     }
     

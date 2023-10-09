@@ -7,12 +7,15 @@
 //
 
 import Cocoa
+import Combine
 import ServiceManagement
 
 class WDPreferenceViewController: NSViewController {
 
     @IBOutlet weak var launchAtLoginSwitch: NSSwitch!
     @IBOutlet weak var refreshIntervalField: NSTextField!
+
+    private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +23,7 @@ class WDPreferenceViewController: NSViewController {
         launchAtLoginSwitch.state = WDPreferenceManager.shared.launchAtLogin ? .on : .off
         refreshIntervalField.stringValue = "\(WDPreferenceManager.shared.refreshInterval)"
         
-        _ = launchAtLoginSwitch.statePublisher
+        launchAtLoginSwitch.statePublisher
             .sink(receiveValue: { state in
                 let launchAtLogin = state == .on ? true : false
                 
@@ -29,14 +32,16 @@ class WDPreferenceViewController: NSViewController {
                 
                 WDPreferenceManager.shared.launchAtLogin = launchAtLogin
             })
+            .store(in: &cancellables)
         
-        _ = refreshIntervalField.textDidEndEditingPublisher
+        refreshIntervalField.textDidEndEditingPublisher
             .sink { stringValue in
                 guard let refreshInterval = Double(stringValue), refreshInterval > 0 else {
                     return
                 }
                 WDPreferenceManager.shared.refreshInterval = refreshInterval
             }
+            .store(in: &cancellables)
     }
     
 }

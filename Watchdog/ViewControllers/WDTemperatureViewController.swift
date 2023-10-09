@@ -15,7 +15,9 @@ class WDTemperatureViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
     
     var sensors: [WDSensor]?
-    
+
+    private var cancellables = Set<AnyCancellable>()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,12 +26,13 @@ class WDTemperatureViewController: NSViewController {
             column.sortDescriptorPrototype = sortDesc
         }
         
-        _ = WDEngine.shared.metricsSubject
+        WDEngine.shared.metricsSubject
             .subscribe(on: DispatchQueue.global())
             .receive(on: DispatchQueue.main)
             .sink { [weak self] metrics in
                 self?.reload(sensors: metrics?.sensors)
             }
+            .store(in: &cancellables)
     }
     
     private func reload(sensors: [WDSensor]?) {

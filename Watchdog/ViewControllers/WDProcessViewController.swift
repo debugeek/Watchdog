@@ -15,6 +15,8 @@ class WDProcessViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
     
     var processes: [WDProcess]?
+
+    private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +26,13 @@ class WDProcessViewController: NSViewController {
             column.sortDescriptorPrototype = sortDesc
         }
         
-        _ = WDEngine.shared.metricsSubject
+        WDEngine.shared.metricsSubject
             .subscribe(on: DispatchQueue.global())
             .receive(on: DispatchQueue.main)
             .sink { [weak self] metrics in
                 self?.reload(processes: metrics?.processes)
             }
+            .store(in: &cancellables)
     }
     
     private lazy var memoryFormatter: ByteCountFormatter = {

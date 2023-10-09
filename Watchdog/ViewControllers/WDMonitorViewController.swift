@@ -20,9 +20,9 @@ class WDMonitorViewController: NSViewController {
     @IBOutlet weak var durationField: NSTextField!
     
     @IBOutlet weak var configurationView: NSBox!
-    
-    private var strategiesSubscriber: AnyCancellable?
-    
+
+    private var cancellables = Set<AnyCancellable>()
+
     private lazy var strategies: [WDStrategy]? = {
         return WDStrategyManager.shared.strategies
     }()
@@ -61,15 +61,16 @@ class WDMonitorViewController: NSViewController {
             return formatter
         }()
         
-        strategiesSubscriber = WDStrategyManager.shared.strategiesSubject
+        WDStrategyManager.shared.strategiesSubject
             .sink { [weak self] (strategies) in
                 let selectedStrategy = self?.selectedStrategy
                 self?.strategies = strategies
                 self?.tableView.reloadData()
                 self?.selectedStrategy = selectedStrategy
             }
+            .store(in: &cancellables)
         
-        _ = segmentedControl.selectedSegmentPublisher
+        segmentedControl.selectedSegmentPublisher
             .sink(receiveValue: { [weak self] selectedSegment in
                 switch selectedSegment {
                 case 0:
@@ -90,8 +91,9 @@ class WDMonitorViewController: NSViewController {
                     
                 }
             })
+            .store(in: &cancellables)
         
-        _ = toggleSwitch.statePublisher
+        toggleSwitch.statePublisher
             .sink(receiveValue: { [weak self] state in
                 guard var selectedStrategy = self?.selectedStrategy else {
                     return
@@ -99,8 +101,9 @@ class WDMonitorViewController: NSViewController {
                 selectedStrategy.enabled = state == .off ? false : true
                 WDStrategyManager.shared.update(selectedStrategy)
             })
+            .store(in: &cancellables)
         
-        _ = typeButton.selectedItemPublisher
+        typeButton.selectedItemPublisher
             .sink(receiveValue: { [weak self] menuItem in
                 guard var selectedStrategy = self?.selectedStrategy,
                       let title = menuItem?.title,
@@ -110,8 +113,9 @@ class WDMonitorViewController: NSViewController {
                 selectedStrategy.type = type
                 WDStrategyManager.shared.update(selectedStrategy)
             })
+            .store(in: &cancellables)
         
-        _ = durationField.textDidEndEditingPublisher
+        durationField.textDidEndEditingPublisher
             .sink { [weak self] stringValue in
                 guard var selectedStrategy = self?.selectedStrategy,
                       let duration = Double(stringValue), duration > 0 else {
@@ -122,8 +126,9 @@ class WDMonitorViewController: NSViewController {
                 
                 WDStrategyManager.shared.update(selectedStrategy)
             }
+            .store(in: &cancellables)
         
-        _ = thresholdField.textDidEndEditingPublisher
+        thresholdField.textDidEndEditingPublisher
             .sink { [weak self] stringValue in
                 guard var selectedStrategy = self?.selectedStrategy,
                       let threshold = Double(stringValue), threshold > 0 else {
@@ -134,6 +139,7 @@ class WDMonitorViewController: NSViewController {
                 
                 WDStrategyManager.shared.update(selectedStrategy)
             }
+            .store(in: &cancellables)
     }
     
 }
