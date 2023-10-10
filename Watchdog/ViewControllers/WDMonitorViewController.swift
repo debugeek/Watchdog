@@ -9,6 +9,7 @@
 import Cocoa
 import SnapKit
 import Combine
+import DGExtension
 
 class WDMonitorViewController: NSViewController {
     

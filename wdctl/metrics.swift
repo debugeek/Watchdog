@@ -11,6 +11,7 @@ import ArgumentParser
 import Shared
 
 struct metrics: ParsableCommand {
+
     static let configuration = CommandConfiguration(abstract: "system info metrics")
     
     func run() throws {
